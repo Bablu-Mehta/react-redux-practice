@@ -1,4 +1,5 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
+import authReducer from "./auth-slice";
 
 const counterSlice = createSlice({
   name: "counter",
@@ -20,7 +21,7 @@ const counterSlice = createSlice({
 });
 
 const store = configureStore({
-  reducer: counterSlice.reducer,
+  reducer: { counter: counterSlice.reducer, auth: authReducer },
 });
 
 export const counterActions = counterSlice.actions;
